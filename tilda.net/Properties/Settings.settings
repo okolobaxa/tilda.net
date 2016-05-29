@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="tilda.net.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BaseUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://api.tildacdn.info</Value>
+    </Setting>
+    <Setting Name="ApiVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">v1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
