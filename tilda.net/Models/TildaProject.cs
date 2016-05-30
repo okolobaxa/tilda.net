@@ -6,16 +6,16 @@ namespace tilda.net.Models
     public class TildaProject
     {
         [JsonProperty("id")]
-        public string id { get; set; }
+        public string Id { get; set; }
         [JsonProperty("title")]
-        public string title { get; set; }
+        public string Title { get; set; }
         [JsonProperty("descr")]
-        public string descr { get; set; }
+        public string Description { get; set; }
         [JsonProperty("customdomain")]
-        public string customdomain { get; set; }
+        public string CustomDomain { get; set; }
         [JsonProperty("css")]
-        public IList<string> css { get; set; }
+        public IList<string> Css { get; set; }
         [JsonProperty("js")]
-        public IList<string> js { get; set; }
+        public IList<string> Js { get; set; }
     }
 }

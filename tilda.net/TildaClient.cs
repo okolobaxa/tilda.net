@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using tilda.net.Models;
@@ -21,60 +20,226 @@ namespace tilda.net
 
         public IList<TildaProject> GetProjectsList()
         {
-            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectslist";
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectslist/?publickey={_publicKey}&secretkey={_privateKey}";
             
             using (var webClient = new WebClient())
             {
                 try
                 {
-
                     var body = webClient.DownloadString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<List<TildaProject>>>(body);
-                    
-                    return responce.Result;
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 catch
                 {
                     throw;
                 }
             }
-
         }
 
         public TildaProject GetProject(long projectId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getproject/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaProject>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
 
-        public TildaProjectExport GetProjectExport()
+        public TildaProjectExport GetProjectExport(long projectId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getproject/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaProjectExport>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
 
         public IList<TildaPage> GetPagesList(long projectId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpageslist/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<IList<TildaPage>>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
         
         public TildaPage GetPage(long pageId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpage/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaPage>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
 
         public TildaPage GetPageFull(long pageId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefull/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaPage>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
 
         public TildaPageExport GetPageExport(long pageId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpageexport/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
 
         public TildaPageExport GetPageFullExport(long pageId)
         {
-            throw new NotImplementedException();
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefullexport/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
+
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    var body = webClient.DownloadString(url);
+
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
+
+                    if (responce.Status == ETildaResultStatus.FOUND)
+                    {
+                        return responce.Result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
     }
 }

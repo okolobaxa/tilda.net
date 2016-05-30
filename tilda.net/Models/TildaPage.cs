@@ -1,36 +1,32 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tilda.net.Models
 {
     public class TildaPage
     {
         [JsonProperty("id")]
-        public string id { get; set; }
+        public string Id { get; set; }
         [JsonProperty("projectid")]
-        public string projectid { get; set; }
+        public string ProjectId { get; set; }
         [JsonProperty("title")]
-        public string title { get; set; }
+        public string Title { get; set; }
         [JsonProperty("descr")]
-        public string descr { get; set; }
+        public string Description { get; set; }
         [JsonProperty("img")]
-        public string img { get; set; }
+        public string Image { get; set; }
         [JsonProperty("featureimg")]
-        public string featureimg { get; set; }
+        public string FeatureImage { get; set; }
         [JsonProperty("alias")]
-        public string alias { get; set; }
+        public string Alias { get; set; }
         [JsonProperty("date")]
-        public string date { get; set; }
+        public DateTime Date { get; set; }
         [JsonProperty("sort")]
-        public string sort { get; set; }
+        public string Sort { get; set; }
         [JsonProperty("published")]
-        public string published { get; set; }
+        public DateTime Published { get; set; }
         [JsonProperty("filename")]
-        public string filename { get; set; }
+        public string FileName { get; set; }
     }
 
 }

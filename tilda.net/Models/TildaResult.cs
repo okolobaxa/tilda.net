@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace tilda.net
 {
     public class TildaResult<T> where T : class
     {
         [JsonProperty("status")]
-        public string Status { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ETildaResultStatus Status { get; set; }
         [JsonProperty("result")]
         public T Result { get; set; }
     }
