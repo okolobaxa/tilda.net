@@ -7,7 +7,7 @@ using tilda.net.Properties;
 
 namespace tilda.net
 {
-    class TildaClient
+    public class TildaClient
     {
         private readonly string _publicKey;
         private readonly string _privateKey;
