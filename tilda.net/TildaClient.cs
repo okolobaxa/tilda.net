@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
+using tilda.net.Exceptions;
 using tilda.net.Models;
 using tilda.net.Properties;
 
@@ -18,6 +19,11 @@ namespace tilda.net
             _privateKey = privateKey;
         }
 
+        /// <summary>
+        /// Get lists of projects from Tilda
+        /// </summary>
+        /// <returns>A list of projects</returns>
+        /// <exception cref = "TildaException" > Thrown when Tilda returns ERROR status code</exception>
         public IList<TildaProject> GetProjectsList()
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectslist/?publickey={_publicKey}&secretkey={_privateKey}";
@@ -36,7 +42,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -46,6 +52,12 @@ namespace tilda.net
             }
         }
 
+        /// <summary>
+        /// Get information about project
+        /// </summary>
+        /// <param name="projectId">Id of requesting project</param>
+        /// <returns>Reqested project</returns>
+        /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaProject GetProject(long projectId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getproject/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
@@ -64,7 +76,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -74,6 +86,12 @@ namespace tilda.net
             }
         }
 
+        /// <summary>
+        /// Get information about project for export
+        /// </summary>
+        /// <param name="projectId">Id of requesting project</param>
+        /// <returns>Reqested project for export</returns>
+        /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaProjectExport GetProjectExport(long projectId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getproject/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
@@ -92,7 +110,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -102,6 +120,12 @@ namespace tilda.net
             }
         }
 
+        /// <summary>
+        /// Get lists of pages
+        /// </summary>
+        /// <param name="projectId">Id of project</param>
+        /// <returns>A list of pages</returns>
+        /// <exception cref = "TildaException" > Thrown when Tilda returns ERROR status code</exception>
         public IList<TildaPage> GetPagesList(long projectId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpageslist/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
@@ -120,7 +144,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -129,7 +153,13 @@ namespace tilda.net
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Get information about page + body html-code
+        /// </summary>
+        /// <param name="pageId">Id of requesting page</param>
+        /// <returns>Reqested page</returns>
+        /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaPage GetPage(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpage/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
@@ -148,7 +178,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -158,6 +188,12 @@ namespace tilda.net
             }
         }
 
+        /// <summary>
+        /// Get information about page + full html-code
+        /// </summary>
+        /// <param name="pageId">Id of requesting page</param>
+        /// <returns>Reqested page</returns>
+        /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaPage GetPageFull(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefull/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
@@ -176,7 +212,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -186,6 +222,12 @@ namespace tilda.net
             }
         }
 
+        /// <summary>
+        /// Get information about page + body html-code for export
+        /// </summary>
+        /// <param name="pageId">Id of requesting page</param>
+        /// <returns>Reqested page</returns>
+        /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaPageExport GetPageExport(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpageexport/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
@@ -204,7 +246,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch
@@ -214,6 +256,12 @@ namespace tilda.net
             }
         }
 
+        /// <summary>
+        /// Get information about page + full html-code for export
+        /// </summary>
+        /// <param name="pageId">Id of requesting page</param>
+        /// <returns>Reqested page</returns>
+        /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaPageExport GetPageFullExport(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefullexport/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
@@ -232,7 +280,7 @@ namespace tilda.net
                     }
                     else
                     {
-                        return null;
+                        throw new TildaException("Tilda error");
                     }
                 }
                 catch

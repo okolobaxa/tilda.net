@@ -3,7 +3,7 @@ using Newtonsoft.Json.Converters;
 
 namespace tilda.net
 {
-    public class TildaResult<T> where T : class
+    internal class TildaResult<T> where T : class
     {
         [JsonProperty("status")]
         [JsonConverter(typeof(StringEnumConverter))]

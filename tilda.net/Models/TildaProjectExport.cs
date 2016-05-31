@@ -3,8 +3,16 @@ using System.Collections.Generic;
 
 namespace tilda.net.Models
 {
-    public class TildaProjectExport : TildaProject
-    {  
+    public class TildaProjectExport
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        [JsonProperty("title")]
+        public string Title { get; set; }
+        [JsonProperty("descr")]
+        public string Description { get; set; }
+        [JsonProperty("customdomain")]
+        public string CustomDomain { get; set; }
         [JsonProperty("export_csspath")]
         public string ExportCssPath { get; set; }
         [JsonProperty("export_jspath")]
@@ -14,11 +22,11 @@ namespace tilda.net.Models
         [JsonProperty("indexpageid")]
         public string IndexPageId { get; set; }
         [JsonProperty("css")]
-        public List<TildaCss> Css { get; set; }
+        public IList<TildaCss> Css { get; set; }
         [JsonProperty("js")]
-        public List<TildaJs> Js { get; set; }
+        public IList<TildaJs> Js { get; set; }
         [JsonProperty("images")]
-        public List<TildaImage> Images { get; set; }
+        public IList<TildaImage> Images { get; set; }
         [JsonProperty("htaccess")]
         public string Htaccess { get; set; }
     }
