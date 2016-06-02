@@ -1,0 +1,9 @@
+branches:
+  only:
+  - master
+language: csharp
+solution: TildaNET.sln
+install:
+  - nuget restore TildaNET.sln
+script:
+  - xbuild /p:Configuration=Release TildaNET.sln
