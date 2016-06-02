@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/okolobaxa/TildaNET.svg)](https://travis-ci.org/okolobaxa/TildaNET)
+[![Build Status](https://travis-ci.org/okolobaxa/TildaNET.svg)]()
+[![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)]()
 [![NuGet version](http://img.shields.io/nuget/v/TildaNET.svg)](https://www.nuget.org/packages/TildaNET /)&nbsp;
 
 # tilda.net
@@ -6,7 +7,7 @@ C# API  wrapper for [tilda.cc](https://tilda.cc)
 
 ## Installation
 
-Instal [NuGet package](https://www.nuget.org/packages/TildaNET)
+Install [NuGet package](https://www.nuget.org/packages/TildaNET)
 
 ## Usage
 
