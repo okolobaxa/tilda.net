@@ -3,7 +3,7 @@
 [![NuGet version](http://img.shields.io/nuget/v/TildaNET.svg)](https://www.nuget.org/packages/TildaNET /)&nbsp;
 
 # tilda.net
-C# API  wrapper for [tilda.cc](https://tilda.cc)
+C# API  wrapper for [tilda.cc](https://tilda.cc). See [API documentation](http://help-ru.tilda.ws/api) for details
 
 ## Installation
 
