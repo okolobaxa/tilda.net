@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/okolobaxa/TildaNET.svg)](https://travis-ci.org/okolobaxa/TildaNET)
+[![NuGet version](http://img.shields.io/nuget/v/TildaNET.svg)](https://www.nuget.org/packages/TildaNET /)&nbsp;
+
 # tilda.net
 C# API  wrapper for [tilda.cc](https://tilda.cc)
 
