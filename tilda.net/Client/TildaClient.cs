@@ -43,7 +43,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<IReadOnlyCollection<TildaProject>>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -65,7 +65,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaProject>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -87,7 +87,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaProjectExport>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -109,7 +109,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<IReadOnlyCollection<TildaPage>>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -131,7 +131,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPage>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -153,7 +153,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -175,7 +175,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }
@@ -197,7 +197,7 @@ namespace TildaNET.Client
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
-            if (responce.Status == TildaResultStatus.FOUND)
+            if (responce.Status == TildaResultStatus.Found)
             {
                 return responce.Result;
             }

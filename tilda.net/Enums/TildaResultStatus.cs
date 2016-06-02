@@ -2,7 +2,7 @@
 {
     public enum TildaResultStatus
     {
-        FOUND = 0,
-        ERROR = 1
+        Found = 0,
+        Error = 1
     }
 }
