@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/okolobaxa/TildaNET.svg)]()
-[![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)]()
+[![Build Status](https://travis-ci.org/okolobaxa/tilda.net.svg?branch=master)](https://travis-ci.org/okolobaxa/tilda.net)
+[![Build Status](https://img.shields.io/appveyor/ci/TildaNET/TildaNET.svg)]()
 [![NuGet version](http://img.shields.io/nuget/v/TildaNET.svg)](https://www.nuget.org/packages/TildaNET /)&nbsp;
 
 # tilda.net
