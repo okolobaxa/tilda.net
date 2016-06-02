@@ -6,4 +6,4 @@ solution: tilda.net.sln
 install:
   - nuget restore tilda.net.sln
 script:
-  - xbuild /p:Configuration=Release tilda.net.sln
+  - xbuild /p:TargetFrameworkVersion="v4.0" /p:Configuration=Release tilda.net.sln
