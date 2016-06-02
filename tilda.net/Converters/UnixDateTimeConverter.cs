@@ -11,8 +11,7 @@ namespace TildaNET.Converters
             if (reader.TokenType != JsonToken.String)
             { 
                 throw new Exception(
-                    string.Format("Unexpected token parsing date. Expected Integer or String, got {0}.",
-                    reader.TokenType));
+                    $"Unexpected token parsing date. Expected Integer or String, got {reader.TokenType}.");
             }
 
             var input = reader.Value.ToString();

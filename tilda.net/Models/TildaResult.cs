@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using TildaNET.Enums;
 
-namespace TildaNET
+namespace TildaNET.Models
 {
     internal class TildaResult<T> where T : class
     {

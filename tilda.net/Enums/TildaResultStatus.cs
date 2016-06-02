@@ -1,4 +1,4 @@
-﻿namespace TildaNET
+﻿namespace TildaNET.Enums
 {
     public enum TildaResultStatus
     {

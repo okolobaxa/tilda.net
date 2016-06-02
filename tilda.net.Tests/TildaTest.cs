@@ -8,13 +8,13 @@ namespace TildaNET.Tests
         private readonly long projectId = 1;
         private readonly long pageId = 1;
 
-        private static IWebClient webClient = new FakeWebClientWrapper();
-        private TildaClient client = new TildaClient(webClient);
+        private static readonly IWebClient WebClient = new FakeWebClientWrapper();
+        private readonly TildaClient _client = new TildaClient(WebClient);
 
         [Fact]
         public void GetProjectsListTest()
         {
-            var result = client.GetProjectsList();
+            var result = _client.GetProjectsList();
 
             Assert.NotNull(result);
             Assert.True(result.Count > 0);
@@ -23,7 +23,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetProjectTest()
         {
-            var result = client.GetProject(projectId);
+            var result = _client.GetProject(projectId);
 
             Assert.NotNull(result);
         }
@@ -31,7 +31,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetProjectExportTest()
         {
-            var result = client.GetProjectExport(projectId);
+            var result = _client.GetProjectExport(projectId);
 
             Assert.NotNull(result);
         }
@@ -39,7 +39,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetPagesListTest()
         {
-            var result = client.GetPagesList(projectId);
+            var result = _client.GetPagesList(projectId);
 
             Assert.NotNull(result);
             Assert.True(result.Count > 0);
@@ -48,7 +48,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetPageTest()
         {
-            var result = client.GetPage(pageId);
+            var result = _client.GetPage(pageId);
 
             Assert.NotNull(result);
         }
@@ -56,7 +56,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetPageFull()
         {
-            var result = client.GetPageFull(pageId);
+            var result = _client.GetPageFull(pageId);
 
             Assert.NotNull(result);
         }
@@ -64,7 +64,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetPageExport()
         {
-            var result = client.GetPageExport(pageId);
+            var result = _client.GetPageExport(pageId);
 
             Assert.NotNull(result);
         }
@@ -72,7 +72,7 @@ namespace TildaNET.Tests
         [Fact]
         public void GetPageFullExport()
         {
-            var result = client.GetPageFullExport(pageId);
+            var result = _client.GetPageFullExport(pageId);
 
             Assert.NotNull(result);
         }

@@ -3,13 +3,13 @@ using System.Net;
 
 namespace TildaNET.Client
 {
-    internal class WebClientWrapper : IWebClient
+    internal sealed class WebClientWrapper : IWebClient
     {
-        private readonly WebClient client = new WebClient();
+        private readonly WebClient _client = new WebClient();
 
         public string DownloadString(string address)
         {
-            return client.DownloadString(address);
+            return _client.DownloadString(address);
         }
 
         public void Dispose()
@@ -18,12 +18,11 @@ namespace TildaNET.Client
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (disposing)
             {
-                if (client != null)
-                    client.Dispose();
+                _client?.Dispose();
             }
         }
 

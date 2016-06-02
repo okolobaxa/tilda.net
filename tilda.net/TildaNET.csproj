@@ -47,7 +47,7 @@
     <Compile Include="Client\WebClientWrapper.cs" />
     <Compile Include="Client\IWebClient.cs" />
     <Compile Include="Converters\UnixDateTimeConverter.cs" />
-    <Compile Include="Enums\ETildaResultStatus.cs" />
+    <Compile Include="Enums\TildaResultStatus.cs" />
     <Compile Include="Exceptions\TildaException.cs" />
     <Compile Include="Models\TildaPageExport.cs" />
     <Compile Include="Models\TildaPage.cs" />

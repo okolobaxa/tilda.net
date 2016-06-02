@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
+using TildaNET.Client;
 
-namespace TildaNET.Client
+namespace TildaNET.Tests
 {
-
     public class FakeWebClientWrapper : IWebClient
     {
         public void Dispose() {  }
