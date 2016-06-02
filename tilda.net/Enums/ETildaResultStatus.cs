@@ -1,6 +1,6 @@
-﻿namespace tilda.net
+﻿namespace TildaNET
 {
-    public enum ETildaResultStatus
+    public enum TildaResultStatus
     {
         FOUND = 0,
         ERROR = 1

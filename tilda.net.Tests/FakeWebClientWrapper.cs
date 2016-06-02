@@ -1,10 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
-namespace tilda.net.Client
+namespace TildaNET.Client
 {
 
     public class FakeWebClientWrapper : IWebClient
     {
+        public void Dispose() {  }
+
         public string DownloadString(string address)
         {
             if (address.Contains("/getpageslist/"))

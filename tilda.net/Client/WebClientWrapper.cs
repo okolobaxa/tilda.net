@@ -1,16 +1,32 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
-namespace tilda.net.Client
+namespace TildaNET.Client
 {
     internal class WebClientWrapper : IWebClient
     {
+        private readonly WebClient client = new WebClient();
+
         public string DownloadString(string address)
         {
-            using (WebClient web = new WebClient())
+            return client.DownloadString(address);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return web.DownloadString(address);
+                if (client != null)
+                    client.Dispose();
             }
         }
+
     }
 
 }

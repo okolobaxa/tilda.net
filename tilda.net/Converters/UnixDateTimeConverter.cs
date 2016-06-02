@@ -2,7 +2,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace tilda.net.Converters
+namespace TildaNET.Converters
 {
     public class UnixDateTimeConverter : DateTimeConverterBase
     {

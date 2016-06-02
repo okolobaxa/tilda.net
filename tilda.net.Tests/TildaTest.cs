@@ -1,7 +1,7 @@
-﻿using tilda.net.Client;
+﻿using TildaNET.Client;
 using Xunit;
 
-namespace tilda.net.Tests
+namespace TildaNET.Tests
 {
     public class TildaTest
     {

@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
-using tilda.net.Converters;
+using TildaNET.Converters;
 
-namespace tilda.net.Models
+namespace TildaNET.Models
 {
     public class TildaPage
     {

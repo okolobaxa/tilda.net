@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace tilda.net.Exceptions
+namespace TildaNET.Exceptions
 {
     public class TildaException : Exception
     {

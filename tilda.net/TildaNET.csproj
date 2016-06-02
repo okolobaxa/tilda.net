@@ -7,8 +7,8 @@
     <ProjectGuid>{C633327A-EBFA-4E97-82D2-75EB702C0F46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>tilda.net</RootNamespace>
-    <AssemblyName>tilda.net</AssemblyName>
+    <RootNamespace>TildaNET</RootNamespace>
+    <AssemblyName>TildaNET</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tilda.net", "tilda.net\tilda.net.csproj", "{C633327A-EBFA-4E97-82D2-75EB702C0F46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TildaNET", "tilda.net\TildaNET.csproj", "{C633327A-EBFA-4E97-82D2-75EB702C0F46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tilda.net.Tests", "tilda.net.Tests\tilda.net.Tests.csproj", "{331FAA67-9786-4926-A329-4A34E9851548}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TildaNET.Tests", "tilda.net.Tests\TildaNET.Tests.csproj", "{331FAA67-9786-4926-A329-4A34E9851548}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

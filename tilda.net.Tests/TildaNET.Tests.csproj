@@ -7,8 +7,8 @@
     <ProjectGuid>{331FAA67-9786-4926-A329-4A34E9851548}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>tilda.net.Tests</RootNamespace>
-    <AssemblyName>tilda.net.Tests</AssemblyName>
+    <RootNamespace>TildaNET.Tests</RootNamespace>
+    <AssemblyName>TildaNET.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -101,9 +101,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\tilda.net\tilda.net.csproj">
+    <ProjectReference Include="..\tilda.net\TildaNET.csproj">
       <Project>{c633327a-ebfa-4e97-82d2-75eb702c0f46}</Project>
-      <Name>tilda.net</Name>
+      <Name>TildaNET</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

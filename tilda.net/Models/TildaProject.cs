@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace tilda.net.Models
+namespace TildaNET.Models
 {
     public class TildaProject
     {

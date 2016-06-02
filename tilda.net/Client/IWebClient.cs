@@ -1,6 +1,8 @@
-﻿namespace tilda.net.Client
+﻿using System;
+
+namespace TildaNET.Client
 {
-    internal interface IWebClient
+    internal interface IWebClient: IDisposable
     {
         string DownloadString(string address);
     }
