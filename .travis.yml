@@ -2,8 +2,8 @@ branches:
   only:
   - master
 language: csharp
-solution: TildaNET.sln
+solution: tilda.net.sln
 install:
-  - nuget restore TildaNET.sln
+  - nuget restore tilda.net.sln
 script:
-  - xbuild /p:Configuration=Release TildaNET.sln
+  - xbuild /p:Configuration=Release tilda.net.sln
