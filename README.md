@@ -6,7 +6,7 @@ C# API  wrapper for [tilda.cc](https://tilda.cc)
 
 ## Installation
 
-Instal NuGet package
+Instal [NuGet package](https://www.nuget.org/packages/TildaNET)
 
 ## Usage
 
