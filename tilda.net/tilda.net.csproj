@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\WebClientWrapper.cs" />
+    <Compile Include="Client\IWebClient.cs" />
+    <Compile Include="Converters\UnixDateTimeConverter.cs" />
     <Compile Include="Enums\ETildaResultStatus.cs" />
     <Compile Include="Exceptions\TildaException.cs" />
     <Compile Include="Models\TildaPageExport.cs" />
@@ -57,7 +60,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TildaClient.cs" />
+    <Compile Include="Client\TildaClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

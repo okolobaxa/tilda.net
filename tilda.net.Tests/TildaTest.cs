@@ -1,14 +1,19 @@
-﻿using Xunit;
+﻿using tilda.net.Client;
+using Xunit;
 
 namespace tilda.net.Tests
 {
     public class TildaTest
     {
+        private readonly long projectId = 1;
+        private readonly long pageId = 1;
+
+        private static IWebClient webClient = new FakeWebClientWrapper();
+        private TildaClient client = new TildaClient(webClient);
+
         [Fact]
         public void GetProjectsListTest()
         {
-
-            var client = new TildaClient("", "");
             var result = client.GetProjectsList();
 
             Assert.NotNull(result);
@@ -18,9 +23,7 @@ namespace tilda.net.Tests
         [Fact]
         public void GetProjectTest()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetProject(1);
+            var result = client.GetProject(projectId);
 
             Assert.NotNull(result);
         }
@@ -28,20 +31,15 @@ namespace tilda.net.Tests
         [Fact]
         public void GetProjectExportTest()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetProjectsList();
+            var result = client.GetProjectExport(projectId);
 
             Assert.NotNull(result);
-            Assert.True(result.Count > 0);
         }
 
         [Fact]
         public void GetPagesListTest()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetPagesList(1);
+            var result = client.GetPagesList(projectId);
 
             Assert.NotNull(result);
             Assert.True(result.Count > 0);
@@ -50,9 +48,7 @@ namespace tilda.net.Tests
         [Fact]
         public void GetPageTest()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetPage(1);
+            var result = client.GetPage(pageId);
 
             Assert.NotNull(result);
         }
@@ -60,9 +56,7 @@ namespace tilda.net.Tests
         [Fact]
         public void GetPageFull()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetPageFull(1);
+            var result = client.GetPageFull(pageId);
 
             Assert.NotNull(result);
         }
@@ -70,9 +64,7 @@ namespace tilda.net.Tests
         [Fact]
         public void GetPageExport()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetPageExport(1);
+            var result = client.GetPageExport(pageId);
 
             Assert.NotNull(result);
         }
@@ -80,9 +72,7 @@ namespace tilda.net.Tests
         [Fact]
         public void GetPageFullExport()
         {
-
-            var client = new TildaClient("", "");
-            var result = client.GetPageFull(1);
+            var result = client.GetPageFullExport(pageId);
 
             Assert.NotNull(result);
         }

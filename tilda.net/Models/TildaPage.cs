@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using tilda.net.Converters;
 
 namespace tilda.net.Models
 {
@@ -24,7 +25,8 @@ namespace tilda.net.Models
         [JsonProperty("sort")]
         public string Sort { get; set; }
         [JsonProperty("published")]
-        public DateTime Published { get; set; }
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTime? Published { get; set; }
         [JsonProperty("filename")]
         public string FileName { get; set; }
     }

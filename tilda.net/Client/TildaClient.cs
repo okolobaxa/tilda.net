@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
+using tilda.net.Client;
 using tilda.net.Exceptions;
 using tilda.net.Models;
 using tilda.net.Properties;
@@ -11,12 +12,25 @@ namespace tilda.net
     {
         private readonly string _publicKey;
         private readonly string _privateKey;
-        
+        private readonly IWebClient _webClient;
+
 
         public TildaClient(string publicKey, string privateKey)
         {
             _publicKey = publicKey;
             _privateKey = privateKey;
+
+            _webClient = new WebClientWrapper();
+        }
+        
+        internal TildaClient(IWebClient webClient)
+        {
+            _webClient = webClient;
+        }
+
+        private string GetString(string uri)
+        {
+            return _webClient.DownloadString(uri);
         }
 
         /// <summary>
@@ -27,28 +41,25 @@ namespace tilda.net
         public IList<TildaProject> GetProjectsList()
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectslist/?publickey={_publicKey}&secretkey={_privateKey}";
-            
-            using (var webClient = new WebClient())
+
+            try
             {
-                try
-                {
-                    var body = webClient.DownloadString(url);
+                var body = GetString(url);
 
-                    var responce = JsonConvert.DeserializeObject<TildaResult<List<TildaProject>>>(body);
+                var responce = JsonConvert.DeserializeObject<TildaResult<List<TildaProject>>>(body);
 
-                    if (responce.Status == ETildaResultStatus.FOUND)
-                    {
-                        return responce.Result;
-                    }
-                    else
-                    {
-                        throw new TildaException("Tilda error");
-                    }
-                }
-                catch
+                if (responce.Status == ETildaResultStatus.FOUND)
                 {
-                    throw;
+                    return responce.Result;
                 }
+                else
+                {
+                    throw new TildaException("Tilda error");
+                }
+            }
+            catch
+            {
+                throw;
             }
         }
 
@@ -66,7 +77,7 @@ namespace tilda.net
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<TildaProject>>(body);
 
@@ -94,13 +105,13 @@ namespace tilda.net
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
         public TildaProjectExport GetProjectExport(long projectId)
         {
-            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getproject/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
+            var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectexport/?publickey={_publicKey}&secretkey={_privateKey}&projectid={projectId}";
 
             using (var webClient = new WebClient())
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<TildaProjectExport>>(body);
 
@@ -134,7 +145,7 @@ namespace tilda.net
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<IList<TildaPage>>>(body);
 
@@ -168,7 +179,7 @@ namespace tilda.net
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<TildaPage>>(body);
 
@@ -194,7 +205,7 @@ namespace tilda.net
         /// <param name="pageId">Id of requesting page</param>
         /// <returns>Reqested page</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        public TildaPage GetPageFull(long pageId)
+        public TildaPageExport GetPageFull(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefull/?publickey={_publicKey}&secretkey={_privateKey}&pageid={pageId}";
 
@@ -202,9 +213,9 @@ namespace tilda.net
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
-                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaPage>>(body);
+                    var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
                     if (responce.Status == ETildaResultStatus.FOUND)
                     {
@@ -236,7 +247,7 @@ namespace tilda.net
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
@@ -270,7 +281,7 @@ namespace tilda.net
             {
                 try
                 {
-                    var body = webClient.DownloadString(url);
+                    var body = GetString(url);
 
                     var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 

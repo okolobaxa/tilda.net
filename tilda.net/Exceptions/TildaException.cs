@@ -2,7 +2,7 @@
 
 namespace tilda.net.Exceptions
 {
-    class TildaException : Exception
+    public class TildaException : Exception
     {
         public TildaException(string message) : base(message)
         {
