@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>TildaNET</id>
+    <version>1.0.1</version>
+    <authors>Anton Kheystver</authors>
+    <projectUrl>https://github.com/okolobaxa/tilda.net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      C# API wrapper for tilda.cc
+    </description>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="8.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\tilda.net\bin\Release\TildaNET.dll" target="lib\TildaNET.dll" />
+  </files>
+</package>
