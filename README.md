@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/okolobaxa/tilda.net.svg?branch=master)](https://travis-ci.org/okolobaxa/tilda.net)
-[![Build status](https://ci.appveyor.com/api/projects/status/xjceo3hnpxnwm3xn?svg=true)](https://ci.appveyor.com/project/okolobaxa/tilda-net)
 [![NuGet version](http://img.shields.io/nuget/v/TildaNET.svg)](https://www.nuget.org/packages/TildaNET /)&nbsp;
 
 # tilda.net
