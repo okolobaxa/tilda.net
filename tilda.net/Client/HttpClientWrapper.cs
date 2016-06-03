@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace TildaNET.Client
 {
-    internal sealed class WebClientWrapper : IWebClient
+    internal sealed class HttpClientWrapper : IHttpClient
     {
-        private readonly WebClient _client = new WebClient();
+        private readonly HttpClient _client = new HttpClient();
 
-        public string DownloadString(string address)
+        public async Task<string> DownloadStringAsync(string address)
         {
-            return _client.DownloadString(address);
+            return await _client.GetStringAsync(address);
         }
 
         public void Dispose()

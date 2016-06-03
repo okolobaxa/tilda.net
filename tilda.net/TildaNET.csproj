@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\WebClientWrapper.cs" />
-    <Compile Include="Client\IWebClient.cs" />
+    <Compile Include="Client\HttpClientWrapper.cs" />
+    <Compile Include="Client\IHttpClient.cs" />
     <Compile Include="Converters\UnixDateTimeConverter.cs" />
     <Compile Include="Enums\TildaResultStatus.cs" />
     <Compile Include="Exceptions\TildaException.cs" />

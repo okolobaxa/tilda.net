@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TildaNET.Enums;
 using TildaNET.Exceptions;
@@ -13,7 +13,7 @@ namespace TildaNET.Client
     {
         private readonly string _publicKey;
         private readonly string _secretKey;
-        private readonly IWebClient _webClient;
+        private readonly IHttpClient _httpClient;
 
 
         public TildaClient(string publicKey, string secretKey)
@@ -21,12 +21,12 @@ namespace TildaNET.Client
             _publicKey = publicKey;
             _secretKey = secretKey;
 
-            _webClient = new WebClientWrapper();
+            _httpClient = new HttpClientWrapper();
         }
 
-        internal TildaClient(IWebClient webClient)
+        internal TildaClient(IHttpClient httpClient)
         {
-            _webClient = webClient;
+            _httpClient = httpClient;
         }
 
         /// <summary>
@@ -34,12 +34,11 @@ namespace TildaNET.Client
         /// </summary>
         /// <returns>A collection of projects</returns>
         /// <exception cref = "TildaException" > Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public IReadOnlyCollection<TildaProject> GetProjectsList()
+        public async Task<IReadOnlyCollection<TildaProject>> GetProjectsList()
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectslist/?publickey={_publicKey}&secretkey={_secretKey}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<IReadOnlyCollection<TildaProject>>>(body);
 
@@ -56,12 +55,11 @@ namespace TildaNET.Client
         /// <param name="projectId">Id of requesting project</param>
         /// <returns>Reqested project</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public TildaProject GetProject(long projectId)
+        public async Task<TildaProject> GetProject(long projectId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getproject/?publickey={_publicKey}&secretkey={_secretKey}&projectid={projectId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaProject>>(body);
 
@@ -78,12 +76,11 @@ namespace TildaNET.Client
         /// <param name="projectId">Id of requesting project</param>
         /// <returns>Reqested project for export</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public TildaProjectExport GetProjectExport(long projectId)
+        public async Task<TildaProjectExport> GetProjectExport(long projectId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getprojectexport/?publickey={_publicKey}&secretkey={_secretKey}&projectid={projectId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaProjectExport>>(body);
 
@@ -100,12 +97,11 @@ namespace TildaNET.Client
         /// <param name="projectId">Id of project</param>
         /// <returns>A collection of pages</returns>
         /// <exception cref = "TildaException" > Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public IReadOnlyCollection<TildaPage> GetPagesList(long projectId)
+        public async Task<IReadOnlyCollection<TildaPage>> GetPagesList(long projectId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpageslist/?publickey={_publicKey}&secretkey={_secretKey}&projectid={projectId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<IReadOnlyCollection<TildaPage>>>(body);
 
@@ -122,12 +118,11 @@ namespace TildaNET.Client
         /// <param name="pageId">Id of requesting page</param>
         /// <returns>Reqested page</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public TildaPage GetPage(long pageId)
+        public async Task<TildaPage> GetPage(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpage/?publickey={_publicKey}&secretkey={_secretKey}&pageid={pageId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPage>>(body);
 
@@ -144,12 +139,11 @@ namespace TildaNET.Client
         /// <param name="pageId">Id of requesting page</param>
         /// <returns>Reqested page</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public TildaPageExport GetPageFull(long pageId)
+        public async Task<TildaPageExport> GetPageFull(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefull/?publickey={_publicKey}&secretkey={_secretKey}&pageid={pageId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
@@ -166,12 +160,11 @@ namespace TildaNET.Client
         /// <param name="pageId">Id of requesting page</param>
         /// <returns>Reqested page</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public TildaPageExport GetPageExport(long pageId)
+        public async Task<TildaPageExport> GetPageExport(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpageexport/?publickey={_publicKey}&secretkey={_secretKey}&pageid={pageId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
@@ -188,12 +181,11 @@ namespace TildaNET.Client
         /// <param name="pageId">Id of requesting page</param>
         /// <returns>Reqested page</returns>
         /// <exception cref = "TildaException">Thrown when Tilda returns ERROR status code</exception>
-        /// <exception cref = "WebException" ></exception>
-        public TildaPageExport GetPageFullExport(long pageId)
+        public async Task<TildaPageExport> GetPageFullExport(long pageId)
         {
             var url = $"{Settings.Default.BaseUrl}/{Settings.Default.ApiVersion}/getpagefullexport/?publickey={_publicKey}&secretkey={_secretKey}&pageid={pageId}";
 
-            var body = GetString(url);
+            var body = await GetStringAsync(url);
 
             var responce = JsonConvert.DeserializeObject<TildaResult<TildaPageExport>>(body);
 
@@ -204,9 +196,9 @@ namespace TildaNET.Client
             throw new TildaException("Tilda error");
         }
 
-        private string GetString(string uri)
+        private async Task<string> GetStringAsync(string uri)
         {
-            return _webClient.DownloadString(uri);
+            return await _httpClient.DownloadStringAsync(uri);
         }
 
         public void Dispose()
@@ -225,7 +217,7 @@ namespace TildaNET.Client
         {
             if(disposing)
             {
-                _webClient?.Dispose();
+                _httpClient?.Dispose();
             }
         }
     }

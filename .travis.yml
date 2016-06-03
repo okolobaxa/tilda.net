@@ -4,6 +4,8 @@ branches:
 language: csharp
 solution: tilda.net.sln
 install:
+  - sudo apt-get install nunit-console
   - nuget restore tilda.net.sln
 script:
-  - xbuild /p:TargetFrameworkVersion="v4.0" /p:Configuration=Release tilda.net.sln
+  - xbuild /p:TargetFrameworkVersion="v4.0" /p:Configuration=Debug tilda.net.sln
+  - nunit-console tilda.net.Tests/bin/Debug/TildaNET.Tests.dll

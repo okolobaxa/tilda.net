@@ -1,78 +1,80 @@
-﻿using TildaNET.Client;
-using Xunit;
+﻿using System.Threading.Tasks;
+using NUnit.Framework;
+using TildaNET.Client;
 
 namespace TildaNET.Tests
 {
+    [TestFixture]
     public class TildaTest
     {
         private readonly long projectId = 1;
         private readonly long pageId = 1;
 
-        private static readonly IWebClient WebClient = new FakeWebClientWrapper();
-        private readonly TildaClient _client = new TildaClient(WebClient);
+        private static readonly IHttpClient HttpClient = new FakeHttpClientWrapper();
+        private readonly TildaClient _client = new TildaClient(HttpClient);
 
-        [Fact]
-        public void GetProjectsListTest()
+        [Test]
+        public async Task GetProjectsListTest()
         {
-            var result = _client.GetProjectsList();
+            var result = await _client.GetProjectsList();
 
             Assert.NotNull(result);
             Assert.True(result.Count > 0);
         }
 
-        [Fact]
-        public void GetProjectTest()
+        [Test]
+        public async Task GetProjectTest()
         {
-            var result = _client.GetProject(projectId);
+            var result = await _client.GetProject(projectId);
 
             Assert.NotNull(result);
         }
 
-        [Fact]
-        public void GetProjectExportTest()
+        [Test]
+        public async Task GetProjectExportTest()
         {
-            var result = _client.GetProjectExport(projectId);
+            var result = await _client.GetProjectExport(projectId);
 
             Assert.NotNull(result);
         }
 
-        [Fact]
-        public void GetPagesListTest()
+        [Test]
+        public async Task GetPagesListTest()
         {
-            var result = _client.GetPagesList(projectId);
+            var result = await _client.GetPagesList(projectId);
 
             Assert.NotNull(result);
             Assert.True(result.Count > 0);
         }
 
-        [Fact]
-        public void GetPageTest()
+        [Test]
+        public async Task GetPageTest()
         {
-            var result = _client.GetPage(pageId);
+            var result = await _client.GetPage(pageId);
 
             Assert.NotNull(result);
         }
 
-        [Fact]
-        public void GetPageFull()
+        [Test]
+        public async Task GetPageFull()
         {
-            var result = _client.GetPageFull(pageId);
+            var result = await _client.GetPageFull(pageId);
 
             Assert.NotNull(result);
         }
 
-        [Fact]
-        public void GetPageExport()
+        [Test]
+        public async Task GetPageExport()
         {
-            var result = _client.GetPageExport(pageId);
+            var result = await _client.GetPageExport(pageId);
 
             Assert.NotNull(result);
         }
 
-        [Fact]
-        public void GetPageFullExport()
+        [Test]
+        public async Task GetPageFullExport()
         {
-            var result = _client.GetPageFullExport(pageId);
+            var result = await _client.GetPageFullExport(pageId);
 
             Assert.NotNull(result);
         }
