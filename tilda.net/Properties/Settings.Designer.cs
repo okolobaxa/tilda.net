@@ -23,27 +23,21 @@ namespace TildaNET.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://api.tildacdn.info")]
         public string BaseUrl {
             get {
                 return ((string)(this["BaseUrl"]));
             }
-            set {
-                this["BaseUrl"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("v1")]
         public string ApiVersion {
             get {
                 return ((string)(this["ApiVersion"]));
-            }
-            set {
-                this["ApiVersion"] = value;
             }
         }
     }

@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TildaNET.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="BaseUrl" Type="System.String" Scope="User">
+    <Setting Name="BaseUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://api.tildacdn.info</Value>
     </Setting>
-    <Setting Name="ApiVersion" Type="System.String" Scope="User">
+    <Setting Name="ApiVersion" Type="System.String" Scope="Application">
       <Value Profile="(Default)">v1</Value>
     </Setting>
   </Settings>
