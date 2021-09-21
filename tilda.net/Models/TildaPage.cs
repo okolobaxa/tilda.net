@@ -29,6 +29,8 @@ namespace TildaNET.Models
         public DateTime? Published { get; set; }
         [JsonProperty("filename")]
         public string FileName { get; set; }
+        [JsonProperty("html")]
+        public string Html { get; set; }
     }
 
 }

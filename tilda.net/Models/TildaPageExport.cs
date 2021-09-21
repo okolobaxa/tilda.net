@@ -7,8 +7,6 @@ namespace TildaNET.Models
     {
         [JsonProperty("images")]
         public IList<TildaImage> Images { get; set; }
-        [JsonProperty("html")]
-        public string Html { get; set; }
     }
 
 }
